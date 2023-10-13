@@ -46,7 +46,7 @@ export default function Users({filter , tickets , users}) {
               </div>
             </div>
             {mapping[ele.id].map((ele , i)=>{
-              return (<Card filter={filter} obj={ele} user={users}/>);
+              return (<Card key={i} filter={filter} obj={ele} user={users}/>);
             })}
             
           </div>

@@ -6,9 +6,9 @@ export default function Priority({filter , tickets , users}) {
     let newSortedTickets;
     let tempSortTickets = [...tickets];
 
-    if(filter.ordering === "priority"){
+    if(filter?.ordering === "priority"){
         newSortedTickets = tempSortTickets.sort((a, b) => { return (b.priority - a.priority)});
-    }else if(filter.ordering === "title"){
+    }else if(filter?.ordering === "title"){
         newSortedTickets =  tempSortTickets.sort((a , b) => {
             return (a.title.localeCompare(b.title));
         });
