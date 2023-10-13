@@ -2,27 +2,32 @@ import React from 'react'
 import Card from '../Card'
 
 export default function Priority({filter , tickets , users}) {
+
+    let newSortedTickets;
+    let tempSortTickets = [...tickets];
+
     if(filter.ordering === "priority"){
-        tickets.sort((a, b) => (a.priority > b.priority ? -1 : 1));
+        newSortedTickets = tempSortTickets.sort((a, b) => { return (b.priority - a.priority)});
     }else if(filter.ordering === "title"){
-        tickets.sort((a , b) => {
+        newSortedTickets =  tempSortTickets.sort((a , b) => {
             return (a.title.localeCompare(b.title));
         });
     }
 
-    const urgent = tickets.filter((obj) => {
+
+    const urgent = newSortedTickets.filter((obj) => {
         return obj.priority === 4;
     })
-    const high = tickets.filter((obj) => {
+    const high = newSortedTickets.filter((obj) => {
         return obj.priority === 3;
     });
-    const medium = tickets.filter((obj) => {
+    const medium = newSortedTickets.filter((obj) => {
         return obj.priority === 2;
     });
-    const low = tickets.filter((obj) => {
+    const low = newSortedTickets.filter((obj) => {
         return obj.priority === 1;
     });
-    const no_priority = tickets.filter((obj) => {
+    const no_priority = newSortedTickets.filter((obj) => {
         return obj.priority === 0;
     });
 

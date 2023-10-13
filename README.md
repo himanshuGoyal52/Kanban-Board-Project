@@ -46,4 +46,4 @@ npm install react react-dom
 7. Now Adding some style to Header and Board.
 8. Making three more components inside new folder ```Grouping``` i.e. grouping by status , priority , users.
 9. Now making the UI responsive by using media queries.
-10. 
+10. Making the sorting feature now.

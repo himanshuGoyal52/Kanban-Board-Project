@@ -3,14 +3,26 @@ import Card from '../Card'
 import ProfileImage from '../ProfileImage'
 
 export default function Users({filter , tickets , users}) {
+
+  let newSortedTickets;
+  let tempSortTickets = [...tickets];
+
+  if(filter.ordering === "priority"){
+      newSortedTickets = tempSortTickets.sort((a, b) => { return (b.priority - a.priority)});
+  }else if(filter.ordering === "title"){
+      newSortedTickets =  tempSortTickets.sort((a , b) => {
+          return (a.title.localeCompare(b.title));
+      });
+  }
+
   const user_s = Object.values(users);
   const mapping = {};
   user_s.forEach((ele , i) => {
     let temp = [];
 
-    for(let i in tickets){
-      if(tickets[i].userId == ele.id){
-        temp.push(tickets[i]);
+    for(let i in newSortedTickets){
+      if(newSortedTickets[i].userId == ele.id){
+        temp.push(newSortedTickets[i]);
       }
     }
     

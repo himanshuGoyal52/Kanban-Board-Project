@@ -2,31 +2,30 @@ import React from 'react'
 import Card from '../Card'
 
 export default function Status({filter , tickets , users}) {
-    const ticket_s = tickets;
-    const user_s = users;
-    if(filter.ordering === "priority"){
-        ticket_s.sort((a , b) => {
-            return (a.priority > b.priority);
-        })
-    }else if(filter.ordering === "title"){
-        ticket_s.sort((a , b) => {
-            return (a.title.localeCompare(b.title));
-        })
-    }
+  let newSortedTickets;
+  let tempSortTickets = [...tickets];
 
-    const backlog = ticket_s.filter((obj) => {
+  if(filter.ordering === "priority"){
+      newSortedTickets = tempSortTickets.sort((a, b) => { return (b.priority - a.priority)});
+  }else if(filter.ordering === "title"){
+      newSortedTickets =  tempSortTickets.sort((a , b) => {
+          return (a.title.localeCompare(b.title));
+      });
+  }
+
+    const backlog = newSortedTickets.filter((obj) => {
         return obj.status === "Backlog";
     })
-    const todo = ticket_s.filter((obj) => {
+    const todo = newSortedTickets.filter((obj) => {
         return obj.status === "Todo";
     });
-    const inprogress = ticket_s.filter((obj) => {
+    const inprogress = newSortedTickets.filter((obj) => {
         return obj.status === "In progress";
     });
-    const done = ticket_s.filter((obj) => {
+    const done = newSortedTickets.filter((obj) => {
         return obj.status === "Done";
     });
-    const canceled = ticket_s.filter((obj) => {
+    const canceled = newSortedTickets.filter((obj) => {
         return obj.status === "Canceled";
     });
 
@@ -46,7 +45,7 @@ export default function Status({filter , tickets , users}) {
         </div>
         { backlog.length !== 0 ? 
             backlog.map((ele , i) => {
-                return (<Card key={i} filter={filter} obj={ele} user={user_s} />);
+                return (<Card key={i} filter={filter} obj={ele} user={users} />);
             }) :
             (<span style={{color : '#545454' , fontSize : '0.8rem'}}>Nothing is in backlog</span>)
         }
@@ -66,7 +65,7 @@ export default function Status({filter , tickets , users}) {
         </div>
         { todo.length !== 0 ? 
             todo.map((ele , i) => {
-                return (<Card key={i} filter={filter} obj={ele} user={user_s}  />);
+                return (<Card key={i} filter={filter} obj={ele} user={users}  />);
             }) :
             (<span style={{color : '#545454' , fontSize : '0.8rem'}}>Nothing todo</span>)
         }
@@ -87,7 +86,7 @@ export default function Status({filter , tickets , users}) {
         </div>
         { inprogress.length !== 0 ? 
             inprogress.map((ele , i) => {
-                return (<Card key={i} filter={filter} obj={ele} user={user_s} />);
+                return (<Card key={i} filter={filter} obj={ele} user={users} />);
             }) :
             (<span style={{color : '#545454' , fontSize : '0.8rem'}}>Nothing is in progress</span>)
         }
@@ -108,7 +107,7 @@ export default function Status({filter , tickets , users}) {
         </div>
         { done.length !== 0 ? 
             done.map((ele , i) => {
-                return (<Card key={i} filter={filter} obj={ele} user={user_s} />);
+                return (<Card key={i} filter={filter} obj={ele} user={users} />);
             }) :
             (<span style={{color : '#545454' , fontSize : '0.8rem'}}>Nothing is done</span>)
         }
@@ -129,7 +128,7 @@ export default function Status({filter , tickets , users}) {
         </div>
         { canceled.length !== 0 ? 
             canceled.map((ele , i) => {
-                return (<Card key={i} filter={filter} obj={ele} user={user_s} />);
+                return (<Card key={i} filter={filter} obj={ele} user={users} />);
             }) :
             (<span style={{color : '#545454' , fontSize : '0.8rem'}}>Nothing is canceled</span>)
         }
