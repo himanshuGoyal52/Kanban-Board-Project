@@ -33,7 +33,7 @@ export default function Users({filter , tickets , users}) {
     <>
       {user_s.map((ele , i) => {
         return (
-          <div className='grid-col'>
+          <div key={i} className='grid-col'>
             <div className='grid-col-head'>
               <div style={{display:'flex' , alignItems : 'center'}}>
                 <ProfileImage key={i} name={ele.name} available={true} />
@@ -45,8 +45,8 @@ export default function Users({filter , tickets , users}) {
                 <i className='bx bx-dots-vertical-rounded bx-rotate-90 curp' ></i>
               </div>
             </div>
-            {mapping[ele.id].map((ele , i)=>{
-              return (<Card key={i} filter={filter} obj={ele} user={users}/>);
+            {mapping[ele.id].map((ele , ii)=>{
+              return (<Card key={ii} filter={filter} obj={ele} user={users}/>);
             })}
             
           </div>
