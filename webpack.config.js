@@ -13,13 +13,13 @@ module.exports = {
     port: '5050',
     static: {
       directory: path.join(__dirname, 'public')
-},
+    },
     open: true,
     hot: true,
     liveReload: true,
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: ['.js', '.jsx', '.json' , '.css' , ''],
   },
   module: {
     rules: [
@@ -27,6 +27,19 @@ module.exports = {
         test: /\.(js|jsx)$/, 
         exclude: /node_modules/, 
         use: 'babel-loader', 
+      },
+      {
+        test:/\.css$/,
+        exclude: /node_modules/,
+        use:['style-loader','css-loader']
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
       },
     ],
   },
