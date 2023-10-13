@@ -2,14 +2,14 @@ import React from 'react'
 import Card from '../Card'
 import ProfileImage from '../ProfileImage'
 
-export default function Users({filter , tickets , users}) {
+export default function Users({filterr , tickets , users}) {
 
   let newSortedTickets;
   let tempSortTickets = [...tickets];
 
-  if(filter.ordering === "priority"){
+  if(filterr.ordering === "priority"){
       newSortedTickets = tempSortTickets.sort((a, b) => { return (b.priority - a.priority)});
-  }else if(filter.ordering === "title"){
+  }else if(filterr.ordering === "title"){
       newSortedTickets =  tempSortTickets.sort((a , b) => {
           return (a.title.localeCompare(b.title));
       });
@@ -46,7 +46,7 @@ export default function Users({filter , tickets , users}) {
               </div>
             </div>
             {mapping[ele.id].map((ele , ii)=>{
-              return (<Card key={ii} filter={filter} obj={ele} user={users}/>);
+              return (<Card key={ii} filterr={filterr} obj={ele} user={users}/>);
             })}
             
           </div>

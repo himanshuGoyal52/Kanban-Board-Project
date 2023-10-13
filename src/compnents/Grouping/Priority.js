@@ -1,14 +1,14 @@
 import React from 'react'
 import Card from '../Card'
 
-export default function Priority({filter , tickets , users}) {
+export default function Priority({filterr , tickets , users}) {
 
     let newSortedTickets;
     let tempSortTickets = [...tickets];
 
-    if(filter?.ordering === "priority"){
+    if(filterr?.ordering === "priority"){
         newSortedTickets = tempSortTickets.sort((a, b) => { return (b.priority - a.priority)});
-    }else if(filter?.ordering === "title"){
+    }else if(filterr?.ordering === "title"){
         newSortedTickets =  tempSortTickets.sort((a , b) => {
             return (a.title.localeCompare(b.title));
         });
@@ -47,7 +47,7 @@ export default function Priority({filter , tickets , users}) {
         </div>
         { no_priority.length !== 0 ? 
             no_priority.map((ele , i) => {
-                return (<Card key={i} filter={filter} obj={ele} user={users} />);
+                return (<Card key={i} filterr={filterr} obj={ele} user={users} />);
             }) :
             (<span style={{color : '#545454' , fontSize : '0.8rem'}}>No one with no priority</span>)
         }
@@ -67,7 +67,7 @@ export default function Priority({filter , tickets , users}) {
         </div>
         { urgent.length !== 0 ? 
             urgent.map((ele , i) => {
-                return (<Card key={i} filter={filter} obj={ele} user={users} />);
+                return (<Card key={i} filterr={filterr} obj={ele} user={users} />);
             }) :
             (<span style={{color : '#545454' , fontSize : '0.8rem'}}>No one with urgent priority</span>)
         }
@@ -87,7 +87,7 @@ export default function Priority({filter , tickets , users}) {
         </div>
         { high.length !== 0 ? 
             high.map((ele , i) => {
-                return (<Card key={i} filter={filter} obj={ele} user={users} />);
+                return (<Card key={i} filterr={filterr} obj={ele} user={users} />);
             }) :
             (<span style={{color : '#545454' , fontSize : '0.8rem'}}>No one with high priority</span>)
         }
@@ -107,7 +107,7 @@ export default function Priority({filter , tickets , users}) {
         </div>
         { medium.length !== 0 ? 
             medium.map((ele , i) => {
-                return (<Card key={i} filter={filter} obj={ele} user={users} />);
+                return (<Card key={i} filterr={filterr} obj={ele} user={users} />);
             }) :
             (<span style={{color : '#545454' , fontSize : '0.8rem'}}>No one with medium priority</span>)
         }
@@ -127,7 +127,7 @@ export default function Priority({filter , tickets , users}) {
         </div>
         { low.length !== 0 ? 
             low.map((ele , i) => {
-                return (<Card key={i} filter={filter} obj={ele} user={users} />);
+                return (<Card key={i} filterr={filterr} obj={ele} user={users} />);
             }) :
             (<span style={{color : '#545454' , fontSize : '0.8rem'}}>No one with low priority</span>)
         }

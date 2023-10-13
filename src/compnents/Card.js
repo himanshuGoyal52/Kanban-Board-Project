@@ -2,7 +2,7 @@ import React from 'react'
 import usr_pic from '../../public/usr-1.png';
 import ProfileImage from './ProfileImage';
 
-export default function Card({filter , obj , user}) {
+export default function Card({filterr , obj , user}) {
 
   const priority_map = [(<i className='bx bx-dots-vertical-rounded bx-rotate-90 stylep' ></i>) , (<i className='bx bx-signal-1 stylep' ></i>) , (<i className='bx bx-signal-2 stylep' ></i>) , (<i className='bx bx-signal-3 stylep' ></i>) , (<i style={{color : '#fc7840'}} className='bx bxs-message-alt-error stylep'></i>)];
   const status_map = {
@@ -19,9 +19,9 @@ export default function Card({filter , obj , user}) {
                 <span>{obj.id}</span>
                 <ProfileImage name={user[obj.userId].name} available={user[obj.userId].available}/>
             </div>
-            <h3> {filter.grouping !== "status" &&  status_map[obj.status]} {obj.title}</h3>
+            <h3> {filterr?.grouping !== "status" &&  status_map[obj.status]} {obj.title}</h3>
             <div style={{display:'flex' , alignItems : 'center'}}>
-                {filter.grouping !== "priority" && priority_map[obj.priority]}
+                {filterr?.grouping !== "priority" && priority_map[obj.priority]}
                 {
                   obj.tag.map((ele , i) => (<p key={i}><i style={{color : '#bec2c8' , marginRight : '4px'}} className='bx bxs-circle' ></i>{ele}</p>))
                 }

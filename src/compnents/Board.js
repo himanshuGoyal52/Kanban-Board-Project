@@ -12,9 +12,9 @@ export default function Board({filter , tickets , users}) {
 
   return (
     <div className='main-board'>
-      {filter?.grouping === "status" && (<Status filter={filter} tickets = {tickets} users={user_s}/>)}
-      {filter?.grouping === "priority" && (<Priority filter={filter} tickets = {tickets} users = {user_s} />)}
-      {filter?.grouping === "user" && (<Users filter={filter} tickets = {tickets} users = {user_s} />)}
+      {filter?.grouping === "status" && (<Status filterr={filter} tickets = {tickets} users={user_s}/>)}
+      {filter?.grouping === "priority" && (<Priority filterr={filter} tickets = {tickets} users = {user_s} />)}
+      {filter?.grouping === "user" && (<Users filterr={filter} tickets = {tickets} users = {user_s} />)}
     </div>
   )
 }
