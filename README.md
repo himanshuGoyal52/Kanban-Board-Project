@@ -3,6 +3,17 @@
 - Email : 20je0420@ee.iitism.ac.in 
 - Phone : +91-7412972658
 
+## Start
+To start the project in localhost
+```shell
+npm start
+```
+
+To build this app
+```shell
+npm run build
+```
+
 ## Setup : 
 
 1. Creating a Node project
