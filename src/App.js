@@ -11,7 +11,7 @@ export default function App() {
 
     const [tickets , setTickets] = useState([]);
     const [users , setUsers] = useState([]);
-    const [filter , setFilter] = useState({});
+    const [filter , setFilter] = useState({"grouping":"status","ordering":"title"});
     const [loading , setLoading] = useState(false);
 
     const changeFilter = (key , val) => {
@@ -55,9 +55,6 @@ export default function App() {
 
             setTickets(obj.tickets);
             setUsers(obj.users);
-
-            console.log(tickets);
-            console.log(users);
 
 
           } catch (err) {
