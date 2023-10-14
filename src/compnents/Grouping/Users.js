@@ -17,7 +17,7 @@ export default function Users({filterr , tickets , users}) {
 
   const user_s = Object.values(users);
   const mapping = {};
-  user_s.forEach((ele , i) => {
+  user_s?.forEach((ele , i) => {
     let temp = [];
 
     for(let i in newSortedTickets){
@@ -31,7 +31,7 @@ export default function Users({filterr , tickets , users}) {
 
   return (
     <>
-      {user_s.map((ele , i) => {
+      {user_s?.map((ele , i) => {
         return (
           <div key={i} className='grid-col'>
             <div className='grid-col-head'>
@@ -45,7 +45,7 @@ export default function Users({filterr , tickets , users}) {
                 <i className='bx bx-dots-vertical-rounded bx-rotate-90 curp' ></i>
               </div>
             </div>
-            {mapping[ele.id].map((ele , ii)=>{
+            {mapping[ele.id]?.map((ele , ii)=>{
               return (<Card key={ii} filterr={filterr} obj={ele} user={users}/>);
             })}
             

@@ -53,8 +53,13 @@ export default function App() {
             const obj = await _data.json();
             setLoading(false);
 
-            setTickets(obj?.tickets);
-            setUsers(obj?.users);
+            setTickets(obj.tickets);
+            setUsers(obj.users);
+
+            console.log(tickets);
+            console.log(users);
+
+
           } catch (err) {
             setLoading(false);
             console.log(err);
