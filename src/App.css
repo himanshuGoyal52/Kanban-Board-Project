@@ -167,7 +167,7 @@ ul{
 }
 
 /* responsive desgin */
-@media only screen and (max-width: 1520px) {
+@media only screen and (max-width: 900px) {
     .main-board{
         flex-direction: column;
         flex-wrap: wrap;
