@@ -1,4 +1,4 @@
-# Himanshu Goyal (20JE0420) IIT Dhanbad - Frontend Assignment - Quicksell
+# Himanshu Goyal (20JE0420) IIT Dhanbad - Frontend Project
 - [Linkdin](https://www.linkedin.com/in/himanshu-goyal-a971941bb/) 
 - Email : 20je0420@ee.iitism.ac.in 
 - Phone : +91-7412972658
